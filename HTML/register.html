@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký - Chắp Cánh Yêu Thương</title>
+    <link rel="stylesheet" href="/DACS1/CSS/login.css">
+    </head>
+<body>
+
+    <header class="site-header header-small">
+        <div class="header-container">
+            <a href="trangchu.html" class="logo-link">
+                <img src="/DACS1/IMANAGE/caplayeuthuong.jpg" alt="Logo Quỹ Chắp Cánh Yêu Thương" class="logo-img">
+            </a>
+            <nav class="main-nav">
+                <a class="nav-link" href="trangchu.html">Trang Chủ</a>
+                <a class="nav-link" href="cachoancanh.html">Hoàn cảnh</a>
+                <a class="nav-link" href="lienhe.html">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="login-page-main">
+        <div class="login-container">
+            <h2>Đăng ký tài khoản mới</h2>
+            <form action="/xu-ly-dang-ky" method="POST"> <div class="form-group">
+                    <label for="fullname">Họ và Tên:</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu:</label>
+                    <input type="password" id="password" name="password" required>
+                    </div>
+                <div class="form-group">
+                    <label for="confirm_password">Xác nhận mật khẩu:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="login-submit-button">Đăng ký</button>
+                </div>
+                <div class="form-links">
+                    <span>Bạn đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></span>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+             <div class="footer-info">
+                <h3>Quỹ Từ Thiện Chắp Cánh Yêu Thương</h3>
+                <p>Địa chỉ: 470 Đ. Trần Đại Nghĩa, Hoà Hải, Ngũ Hành Sơn, Đà Nẵng</p>
+             </div>
+             <div class="footer-nav">
+                 <h4>Liên kết nhanh</h4>
+                 <ul>
+                     <li><a href="trangchu.html">Trang Chủ</a></li>
+                     <li><a href="cachoancanh.html">Hoàn cảnh</a></li>
+                     <li><a href="lienhe.html">Liên hệ</a></li>
+                 </ul>
+             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Quỹ Chắp Cánh Yêu Thương. Bảo lưu mọi quyền.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

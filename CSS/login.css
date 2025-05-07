@@ -1,0 +1,314 @@
+/* === Biến và Style cơ bản (Copy từ trangchu.css nếu cần) === */
+:root {
+    --primary-color: rgb(90, 130, 30);
+    --primary-color-darker: rgb(75, 110, 25);
+    --text-color: #333;
+    --background-color: #f8f8f8; /* Nền nhạt hơn cho trang đăng nhập */
+    --light-gray: #fff; /* Dùng màu trắng cho form */
+    --border-color: #ddd;
+    --header-height-small: 80px; /* Chiều cao header nhỏ */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Font phổ biến */
+    color: var(--text-color);
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Đảm bảo footer luôn ở cuối trang */
+}
+
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color-darker);
+    text-decoration: underline;
+}
+
+/* === Header (Style giống trang chủ nhưng có thể đơn giản hóa) === */
+.site-header {
+    width: 100%;
+    background-color: #fff; /* Nền trắng cho header */
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: var(--header-height-small);
+    display: flex; /* Thêm display flex để căn chỉnh container */
+    align-items: center; /* Căn giữa container theo chiều dọc */
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Header container chiếm full width */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+}
+
+.logo-link {
+    display: inline-block;
+}
+
+.logo-img {
+    height: calc(var(--header-height-small) - 20px); /* Logo nhỏ hơn */
+    width: auto;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Khoảng cách giữa các link nav */
+}
+
+.main-nav .nav-link {
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-weight: 600; /* Đậm hơn một chút */
+    font-size: 14px;
+    color: #555; /* Màu chữ nav tối hơn */
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.main-nav .nav-link:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom-color: var(--primary-color);
+}
+
+/* === Main Content - Login Form === */
+.login-page-main {
+    flex-grow: 1; /* Giúp main content chiếm không gian còn lại */
+    display: flex;
+    justify-content: center; /* Căn giữa form theo chiều ngang */
+    align-items: center; /* Căn giữa form theo chiều dọc */
+    padding: 40px 20px; /* Padding cho khu vực main */
+}
+
+.login-container {
+    background-color: var(--light-gray); /* Nền trắng cho form */
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Giới hạn chiều rộng tối đa của form */
+    text-align: center;
+}
+
+.login-container h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Căn trái label và input */
+}
+
+.form-group label {
+    display: block; /* Label chiếm một dòng riêng */
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%; /* Input chiếm toàn bộ chiều rộng */
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 15px;
+    box-sizing: border-box; /* Tính cả padding và border vào width */
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none; /* Bỏ viền focus mặc định */
+    box-shadow: 0 0 0 2px rgba(90, 130, 30, 0.2); /* Hiệu ứng focus nhẹ */
+}
+
+.form-actions {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.login-submit-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%; /* Nút chiếm full width */
+}
+
+.login-submit-button:hover {
+    background-color: var(--primary-color-darker);
+    transform: translateY(-2px);
+}
+
+.form-links {
+    font-size: 14px;
+    color: #777;
+}
+
+.form-links a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.form-links a:hover {
+    color: var(--primary-color-darker);
+}
+
+.form-links span {
+    margin: 0 10px; /* Khoảng cách cho dấu | */
+}
+
+/* === Footer (Style giống trang chủ) === */
+.site-footer {
+    background-color: #333;
+    color: #ccc;
+    padding: 30px 0 0; /* Giảm padding một chút */
+    font-size: 14px;
+    margin-top: auto; /* Đảm bảo footer luôn ở cuối nếu nội dung ngắn */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Giảm khoảng cách */
+}
+
+.footer-info, .footer-nav {
+    flex: 1;
+    min-width: 200px;
+}
+
+.site-footer h3, .site-footer h4 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.footer-info p {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.footer-info a, .footer-nav a {
+    color: #ccc;
+}
+
+.footer-info a:hover, .footer-nav a:hover {
+    color: white;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li {
+    margin-bottom: 6px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #555;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 25px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* Stack header items */
+        height: auto; /* Header height tự động */
+        padding: 15px;
+    }
+    .logo-img {
+        margin-bottom: 10px;
+    }
+    .main-nav {
+        margin-top: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px; /* Giảm gap trên mobile */
+    }
+    .main-nav .nav-link {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .login-container {
+        padding: 25px 20px; /* Giảm padding form trên mobile */
+        max-width: 90%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container h2 {
+        font-size: 20px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    .login-submit-button {
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+    .form-links {
+        font-size: 13px;
+    }
+    .form-links span {
+        margin: 0 5px;
+    }
+    .form-links a {
+        display: block; /* Hiển thị link trên dòng riêng */
+        margin-top: 8px;
+    }
+    .form-links span {
+        display: none; /* Ẩn dấu | */
+    }
+}

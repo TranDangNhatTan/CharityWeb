@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lời Chào Đơn Giản</title>
+</head>
+<body>
+    <h1>Nhấn nút để nhận lời chào:</h1>
+    <button id="greetButton">Chào!</button>
+    <div id="greetingMessage"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const greetButton = document.getElementById('greetButton');
+            const greetingMessageDiv = document.getElementById('greetingMessage');
+
+            greetButton.addEventListener('click', function() {
+                // Gửi yêu cầu đến backend khi nút được nhấn
+                fetch('/api/greet') // Đường dẫn (endpoint) mà backend sẽ xử lý
+                    .then(response => response.json()) // Chuyển đổi phản hồi thành JSON
+                    .then(data => {
+                        greetingMessageDiv.textContent = data.message; // Hiển thị lời chào từ backend
+                    })
+                    .catch(error => {
+                        greetingMessageDiv.textContent = 'Có lỗi xảy ra khi kết nối đến server.';
+                        console.error('Lỗi:', error);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
