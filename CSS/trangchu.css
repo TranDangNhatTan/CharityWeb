@@ -151,7 +151,7 @@
       width: 40px;
       height: 40px;
       background-color: #f0f0f0;
-      background-image: url('/DACS1/IMANAGE/logo_facebook.png'); /* Path to FB logo */
+      background-image: url('/IMANAGE/logo_facebook.png'); /* Path to FB logo */
       background-size: contain; /* Ensure logo fits */
       background-position: center;
       background-repeat: no-repeat;

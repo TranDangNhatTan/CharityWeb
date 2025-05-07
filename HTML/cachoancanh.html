@@ -3,6 +3,7 @@
     <head>
         <title>từ thiện đây</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="/CSS/cachoancanh.css">
         <style>
             body {
             margin: 0;
@@ -48,20 +49,30 @@
                 color: rgb(90, 130, 30);
             }.thongtin1{
                 width: auto;
-                height: 200px;
+                height: 800px;
                 background-color: red;
             }
         </style>
     </head>
     <body>
-        <header>
-            <div class="box1">
-                <img src="/DACS1\IMANAGE\caplayeuthuong.jpg" alt="Logo" >
-                
-                <div class="box2">
+        <header class="site-header header-normal">
+            <div class="header-container">
+                <a href="trangchu.html" class="logo-link">
+                    <img src="/IMANAGE/caplayeuthuong.jpg" alt="Logo Quỹ Chắp Cánh Yêu Thương" class="logo-img">
+                    </a>
+    
+                <nav class="main-nav">
                     <a class="nav-link trangchu" href="trangchu.html"><b>Trang Chủ</b></a>
-                    <a class="nav-link cachoancanh" href="cachoancanh.html"><b>Các Hoàn Cảnh</b></a>
+                    <a class="nav-link cachoancanh" href="cachoancanh.html"><b>Hoàn cảnh</b></a>
                     <a class="nav-link lienhe" href="lienhe.html"><b>Liên hệ</b></a>
+                </nav>
+    
+                <div class="header-actions">
+                    <a href="https://www.facebook.com/quoc.le.trung.2025" class="social-link facebook-button" target="_blank" rel="noopener noreferrer" aria-label="Trang Facebook của chúng tôi">
+                        </a>
+                    <a href="/HTML/login.html" class="social-link login-button" aria-label="Đăng nhập">
+                        Đăng nhập
+                    </a>
                 </div>
             </div>
         </header>
@@ -71,19 +82,34 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const currentPage = window.location.pathname.split('/').pop();
-            const navLinks = document.querySelectorAll('.nav-link');
+            const navLinks = document.querySelectorAll('.main-nav .nav-link');
 
             navLinks.forEach(link => {
-                link.classList.remove('active'); 
+                link.classList.remove('active');
+                // Check if the link's href matches the current page
+                if (link.getAttribute('href') === currentPage || (currentPage === '' && link.classList.contains('cachoancanh'))) {
+                    link.classList.add('active');
+                }
             });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.site-header');
+            if (!header) return;
 
-            if (currentPage === 'trangchu.html' || currentPage === '') {
-                document.querySelector('.nav-link.trangchu').classList.add('active');
-            } else if (currentPage === 'cachoancanh.html') {
-                document.querySelector('.nav-link.cachoancanh').classList.add('active');
-            } else if (currentPage === 'lienhe.html') {
-                document.querySelector('.nav-link.lienhe').classList.add('active');
+            const scrollThreshold = 50; // Pixels to scroll before shrinking header
+
+            function updateHeaderOnScroll() {
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.remove('header-normal');
+                    header.classList.add('header-small');
+                } else {
+                    header.classList.remove('header-small');
+                    header.classList.add('header-normal');
+                }
             }
+
+            window.addEventListener('scroll', updateHeaderOnScroll);
+            updateHeaderOnScroll(); // Check initial state
         });
     </script>
 </html>

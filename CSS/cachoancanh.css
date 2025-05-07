@@ -1,0 +1,193 @@
+:root {
+    --primary-color: rgb(90, 130, 30);
+    --primary-color-darker: rgb(75, 110, 25);
+    --secondary-color: silver;
+    --text-color: #333;
+    --background-color: #fff;
+    --light-gray: #f8f8f8;
+    --border-color: #eee;
+    --header-height-normal: 130px;
+    --header-height-small: 80px;
+    /* --base-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */ /* Đã xoá */
+    /* --heading-font-family: Verdana, Geneva, Tahoma, sans-serif; */ /* Đã xoá */
+  }
+/* === Header === */
+.site-header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color);
+    z-index: 1000; /* Ensure header stays on top */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: height 0.3s ease, padding 0.3s ease;
+  }
+  
+  .header-normal {
+    height: var(--header-height-normal);
+  }
+  
+  .header-small {
+    height: var(--header-height-small);
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out logo, nav, actions */
+    height: 100%; /* Make container fill header height */
+    max-width: 1200px; /* Wider container for header */
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo-link {
+    display: inline-block; /* Prevents taking full width */
+  }
+  
+  .logo-img {
+    height: calc(var(--header-height-normal) - 40px); /* Adjust logo size based on header */
+    width: auto;
+    transition: height 0.3s ease;
+  }
+  
+  .header-small .logo-img {
+    height: calc(var(--header-height-small) - 20px);
+  }
+  
+  /* === Navigation === */
+  .main-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .main-nav .nav-link {
+    align-items: center;
+    display: inline-flex;
+    padding: 10px 18px; /* Increased padding */
+    text-align: left;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--secondary-color);
+    border-bottom: 3px solid transparent; /* Space for active indicator */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+  }
+  
+  .main-nav .nav-link:hover {
+    color: var(--primary-color);
+  }
+  
+  .main-nav .nav-link.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color); /* Visual indicator for active link */
+  }
+  
+  /* === Header Actions (Facebook, Login) === */
+  .header-actions {
+    display: flex; /* Arrange buttons horizontally */
+    align-items: center; /* Vertically align items */
+    gap: 15px; /* Space between buttons */
+  }
+  
+  /* General style for action buttons */
+  .social-link {
+    display: inline-flex; /* Use flex for alignment if icon+text */
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px; /* Default border radius */
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    padding: 8px 15px; /* Default padding */
+    text-decoration: none;
+    font-size: 14px; /* Default font size */
+  }
+  
+  /* Specific style for Facebook button */
+  .facebook-button {
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    background-image: url('/DACS1/IMANAGE/logo_facebook.png'); /* Path to FB logo */
+    background-size: contain; /* Ensure logo fits */
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-indent: -9999px; /* Hide text if only icon */
+    overflow: hidden;
+    padding: 0; /* Remove padding for icon-only button */
+    border-radius: 50%; /* Make it circular */
+  }
+  
+  /* Specific style for Login button */
+  .login-button {
+    background-color: var(--primary-color); /* Use primary color */
+    color: white; /* White text */
+    /* Add icon styles here if needed */
+  }
+  
+  /* Hover effects */
+  .social-link:hover {
+    opacity: 0.8; /* General hover effect */
+  }
+  
+  .login-button:hover {
+    background-color: var(--primary-color-darker); /* Darker background on hover */
+    opacity: 1; /* Ensure full opacity on hover */
+    color: white; /* Ensure text color remains white */
+  }
+  
+  /* === Responsive Design for Header === */
+  /* Medium screens (tablets) */
+  @media (max-width: 992px) {
+    .header-container {
+      padding: 0 15px;
+    }
+    .main-nav .nav-link {
+      padding: 10px 12px;
+    }
+  }
+  
+  /* Small screens (landscape phones, small tablets) */
+  @media (max-width: 768px) {
+    .header-normal, .header-small {
+      height: auto; /* Let height adjust to content */
+      padding: 10px 0; /* Add padding for smaller headers */
+    }
+    .header-container {
+      flex-direction: column; /* Stack items vertically */
+      padding: 15px;
+    }
+    .logo-img {
+      height: 50px; /* Fixed smaller logo */
+      margin-bottom: 10px;
+    }
+    .main-nav {
+      margin-top: 10px;
+      width: 100%;
+      justify-content: center; /* Center nav items */
+      flex-wrap: wrap; /* Allow nav items to wrap */
+      margin-bottom: 10px; /* Add space below nav */
+    }
+    .header-actions { /* Adjust actions block on mobile */
+      margin-top: 15px;
+    }
+    .facebook-button {
+      /* Removed redundant margin-top here, handled by .header-actions */
+    }
+  }
+  
+  /* Extra small screens (portrait phones) */
+  @media (max-width: 576px) {
+    .main-nav .nav-link {
+      padding: 8px 10px;
+    }
+    .header-actions {
+      gap: 10px; /* Reduce gap further on small screens */
+    }
+    .social-link {
+      padding: 6px 12px; /* Slightly smaller padding */
+      font-size: 13px;
+    }
+    .facebook-button {
+      width: 35px;
+      height: 35px;
+    }
+  }
