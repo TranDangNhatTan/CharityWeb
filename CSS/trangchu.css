@@ -186,7 +186,7 @@
 
   .wheel-container {
       width: 100%; /* Make slider full width */
-      /* height: 594px; /* Let height be determined by image aspect ratio */
+       height: 550px; /* Let height be determined by image aspect ratio */
       aspect-ratio: 16 / 7; /* Example aspect ratio, adjust as needed */
       position: relative;
       overflow: hidden;
@@ -297,7 +297,6 @@
       height: auto;
       margin-bottom: 20px;
       border: 1px solid var(--border-color);
-      /* overflow: hidden; */ /* Removed overflow unless needed */
   }
 
   .feature-logo {
@@ -307,9 +306,7 @@
   }
 
   .feature-text h2 {
-      /* font-size: 33px; */ /* Đã xoá */
-      /* line-height: 1.2; */ /* Đã xoá */
-      /* font-weight: 700; */ /* Đã xoá */
+
       margin-top: 0; /* Remove default top margin */
       margin-bottom: 20px;
   }

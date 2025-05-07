@@ -205,7 +205,7 @@
 
 
             // Auto slide
-            let autoSlideInterval = setInterval(nextSlide, 4400);
+            let autoSlideInterval = setInterval(nextSlide, 2000);
 
             // Optional: Pause auto-slide on hover
             wheelContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
@@ -217,7 +217,7 @@
             const header = document.querySelector('.site-header');
             if (!header) return;
 
-            const scrollThreshold = 50; // Pixels to scroll before shrinking header
+            const scrollThreshold = 170; // Pixels to scroll before shrinking header
 
             function updateHeaderOnScroll() {
                 if (window.scrollY > scrollThreshold) {
