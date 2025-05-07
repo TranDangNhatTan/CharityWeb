@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đại Lá Lành</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    h2 {
+      color: #5f8d3d;
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .arrow {
+      font-size: 40px;
+      cursor: pointer;
+      color: #999;
+      user-select: none;
+    }
+
+    .logos-wrapper {
+      display: flex;
+      gap: 20px;
+      overflow: hidden;
+    }
+
+    .logo-box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+    }
+
+    .logo-box img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>ĐẠI LÁ LÀNH</h2>
+
+  <div class="slider-container">
+    <div class="arrow" onclick="scrollLeft()">&#10094;</div>
+
+    <div class="logos-wrapper" id="logos">
+      <div class="logo-box"><img src="logo-edh.png" alt="EDH"></div>
+      <div class="logo-box"><img src="logo-vinamilk.png" alt="Vinamilk"></div>
+      <div class="logo-box"><img src="logo-hoasen.png" alt="Hoa Sen Group"></div>
+      <div class="logo-box"><img src="logo-lian.png" alt="LIAN"></div>
+      <div class="logo-box"><img src="logo-edh.png" alt="EDH"></div>
+      <div class="logo-box"><img src="logo-vinamilk.png" alt="Vinamilk"></div>
+      <div class="logo-box"><img src="logo-hoasen.png" alt="Hoa Sen Group"></div>
+      <div class="logo-box"><img src="logo-lian.png" alt="LIAN"></div>
+    </div>
+
+    <div class="arrow" onclick="scrollRight()">&#10095;</div>
+  </div>
+
+  <script>
+    function scrollLeft() {
+      const container = document.getElementById('logos');
+      container.scrollBy({ left: -220, behavior: 'smooth' });
+    }
+
+    function scrollRight() {
+      const container = document.getElementById('logos');
+      container.scrollBy({ left: 220, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

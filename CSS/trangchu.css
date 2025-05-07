@@ -706,3 +706,151 @@
     background-color: green;
     margin: 20px 0; /* Khoảng cách trên và dưới */
 }
+
+
+/* === Partners Section === */
+.partners-section {
+    background-color: rgb(90, 130, 30);/* Nền màu xanh lá cây theo yêu cầu */
+    padding: 50px 0; /* Tăng padding một chút */
+    text-align: center;
+    overflow: hidden; /* Quan trọng để viewport hoạt động đúng */
+}
+
+.partners-section .partners-title {
+    color: white; /* Chữ màu trắng theo yêu cầu */
+    margin-bottom: 40px; /* Tăng khoảng cách */
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.partners-slider-wrapper {
+    position: relative;
+    max-width: 1100px; /* Điều chỉnh chiều rộng tối đa của slider */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.partners-slider-viewport {
+    width: 100%;
+    overflow: hidden; /* Quan trọng: Ẩn các slide không active */
+    margin: 0 15px; /* Khoảng cách với nút */
+}
+
+.partners-slider-track {
+    display: flex; /* Giúp các slide-page xếp hàng ngang */
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng chuyển slide mượt */
+    /* width sẽ được tính bằng JS hoặc là (số slide * 100%) */
+}
+
+.partner-slide-page {
+    min-width: 100%; /* Mỗi slide chiếm 100% chiều rộng của viewport */
+    flex-shrink: 0; /* Ngăn slide bị co lại */
+    display: flex;
+    justify-content: space-around; /* Phân bổ đều các logo trong slide */
+    align-items: center;
+    padding: 10px 0; /* Padding cho từng trang slide */
+    /* display: none; Sẽ được JS quản lý qua class active hoặc transform */
+}
+
+/* .partner-slide-page.active {
+    display: flex;
+} */
+
+.partner-item {
+    /* flex: 0 0 auto; Không cần thiết nếu dùng justify-content trên page */
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(25% - 20px); /* Ví dụ: 4 items mỗi slide, với khoảng cách */
+    max-width: 200px; /* Chiều rộng tối đa của một logo item */
+    min-width: 150px; /* Chiều rộng tối thiểu */
+    height: 100px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 0 10px; /* Khoảng cách giữa các item trong một slide */
+}
+
+.partner-item img {
+    max-width: 100%;
+    max-height: 80%; /* Giảm chút để không sát viền item */
+    object-fit: contain;
+    display: block;
+}
+
+.partner-nav-button {
+    background-color: rgba(255, 255, 255, 0.2); /* Nền mờ hơn một chút */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Thêm viền nhẹ */
+    border-radius: 50%;
+    width: 45px; /* Tăng kích thước nút */
+    height: 45px;
+    font-size: 28px; /* Tăng kích thước icon */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    z-index: 10;
+    flex-shrink: 0; /* Ngăn nút bị co lại */
+}
+
+/* Không cần margin riêng cho prev/next nếu đã có margin ở viewport */
+/* .partner-nav-button.prev { } */
+/* .partner-nav-button.next { } */
+
+.partner-nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: white;
+}
+
+.partner-nav-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .partner-item {
+        width: calc(33.33% - 20px); /* 3 items */
+        max-width: 180px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .partners-section .partners-title {
+        font-size: 24px;
+    }
+    .partner-item {
+        width: calc(50% - 15px); /* 2 items trên tablet nhỏ */
+        max-width: 160px;
+        height: 90px;
+        margin: 0 7.5px;
+    }
+    .partner-nav-button {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+    .partners-slider-viewport {
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partner-item {
+        width: calc(100% - 10px); /* 1 item trên mobile nhỏ, hoặc 2 nếu muốn */
+        /* width: calc(50% - 10px); /* Nếu muốn 2 item */
+        max-width: none; /* Cho phép chiếm full nếu chỉ 1 item */
+        height: 80px;
+        margin: 0 5px;
+    }
+    .partners-slider-wrapper {
+        /* Có thể cân nhắc ẩn nút và cho phép vuốt trên mobile nếu JS hỗ trợ */
+    }
+}

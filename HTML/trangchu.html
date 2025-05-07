@@ -55,7 +55,7 @@
                 </div>
             </div>
         </section>
-
+        
         <section class="feature-section">
             <div class="container">
                 <div class="feature-content">
@@ -74,6 +74,54 @@
                     <div class="feature-image">
                         <img src="/IMANAGE/valo.png" alt="Học sinh nhận quà trong chương trình tới trường">
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="partners-section">
+            <div class="container">
+                <h2 class="section-title partners-title">Nhà hảo tâm</h2>
+                <div class="partners-slider-wrapper">
+                    <button class="partner-nav-button prev" id="partnerPrevBtn" aria-label="Trước">&#8249;</button>
+                    <div class="partners-slider-viewport">
+                        <div class="partners-slider-track">
+                            <div class="partner-slide-page active">
+                                <div class="partner-item">
+                                    <a href="https://vku.udn.vn/vi/" target="_blank" rel="noopener noreferrer">
+                                        <img src="/IMANAGE/logo_vku.png" alt="Đối tác 1">
+                                    </a>
+                                </div>
+                                <div class="partner-item">
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="/IMANAGE/samsung.png" alt="Đối tác 2">
+                                    </a>
+                                </div>
+                                <div class="partner-item">
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="/IMANAGE/logo_vinamilkk.png" alt="Đối tác 3">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="partner-slide-page">
+                                <div class="partner-item">
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="/IMANAGE/logo_vingroup.png" alt="Đối tác 4">
+                                    </a>
+                                </div>
+                                <div class="partner-item">
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="/IMANAGE/1234.png" alt="Đối tác 5">
+                                    </a>
+                                </div>
+                                <div class="partner-item">
+                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                        <img src="/IMANAGE/logo_yaku.png" alt="Đối tác 6">
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                    <button class="partner-nav-button next" id="partnerNextBtn" aria-label="Sau">&#8250;</button>
                 </div>
             </div>
         </section>
@@ -181,7 +229,59 @@
         </svg>
     </button>
     <script>
-        
+        // SCRIPT CHO PARTNERS SLIDER (CHUYỂN TRANG - CÓ LẶP LẠI)
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliderWrapper = document.querySelector('.partners-slider-wrapper');
+            if (sliderWrapper) {
+                const track = sliderWrapper.querySelector('.partners-slider-track');
+                const slides = Array.from(track.querySelectorAll('.partner-slide-page'));
+                const prevButton = sliderWrapper.querySelector('#partnerPrevBtn');
+                const nextButton = sliderWrapper.querySelector('#partnerNextBtn');
+                let currentSlideIndex = 0;
+
+                if (slides.length > 0 && prevButton && nextButton) {
+                    function updateSlider() {
+                        // Di chuyển track
+                        track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+
+                        // Cập nhật trạng thái active cho slide (tùy chọn)
+                        slides.forEach((slide, index) => {
+                            slide.classList.toggle('active', index === currentSlideIndex);
+                        });
+
+                        if (slides.length <= 1) {
+                            prevButton.disabled = true;
+                            nextButton.disabled = true;
+                        } else {
+                            prevButton.disabled = false; // Luôn bật nếu có nhiều hơn 1 slide và lặp
+                            nextButton.disabled = false; // Luôn bật
+                        }
+                    }
+
+                    prevButton.addEventListener('click', function() {
+                        currentSlideIndex--;
+                        if (currentSlideIndex < 0) {
+                            currentSlideIndex = slides.length - 1; // Quay lại slide cuối
+                        }
+                        updateSlider();
+                    });
+
+                    nextButton.addEventListener('click', function() {
+                        currentSlideIndex++;
+                        if (currentSlideIndex >= slides.length) {
+                            currentSlideIndex = 0; // Quay lại slide đầu
+                        }
+                        updateSlider();
+                    });
+
+                    // Khởi tạo slider
+                    updateSlider();
+                }
+            }
+        });
+    
+
+
         document.addEventListener('DOMContentLoaded', function() {
             const scrollToTopBtn = document.getElementById('scrollToTopBtn');
             const scrollThresholdShowButton = 750; // Hiện nút sau khi cuộn 750px
