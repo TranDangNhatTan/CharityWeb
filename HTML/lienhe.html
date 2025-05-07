@@ -3,65 +3,35 @@
     <head>
         <title>từ thiện đây</title>
         <meta charset="UTF-8">
+        
+        <link rel="stylesheet" href="/CSS/lienhe.css">
         <style>
-            body {
-                margin: 0;
-                padding: 0;
-            }
-            .box1{
+            .lienhe1{
                 width: auto;
-                height: 130px;
-                align-items: center;
-                display: flex;
-            }.box1 img{
-                width: 135px;
-                height: 130px;
-                font-size: 32px;
-                font-weight: 700;
-                line-height: 32px;
-                text-transform: uppercase;
-                margin-left: 30px;
-            }.box2{
-                align-items: center;
-                display: flex;
-                line-height: 25.6px;
-                width: 1118px;
-                height: 28px;
-                margin-left: 20px;
-            }.box2 a{
-                align-items: center;
-                display: inline-flex;
-                flex-wrap: wrap;
-                /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
-                font-size: 15px;
-                font-weight: 700;
-                letter-spacing: 0.26px;
-                line-height: 16px;
-                padding: 0px 15px;
-                text-align: left;
-                text-transform: uppercase;
-                text-decoration: none;
-                color: silver;
-            }.box2 a:hover{
-                color: rgb(97, 137, 37);
-            }.box2 a.active{
-                color: rgb(90, 130, 30);
-            }.lienhe1{
-                width: auto;
-                height: 200px;
+                height: 700px;
                 background-color: aqua;
             }
         </style>
     </head>
     <body>
-        <header>
-            <div class="box1">
-                <img src="/IMANAGE/caplayeuthuong.jpg" alt="Logo" >
-                
-                <div class="box2">
+        <header class="site-header header-normal">
+            <div class="header-container">
+                <a href="trangchu.html" class="logo-link">
+                    <img src="/IMANAGE/caplayeuthuong.jpg" alt="Logo Quỹ Chắp Cánh Yêu Thương" class="logo-img">
+                    </a>
+    
+                <nav class="main-nav">
                     <a class="nav-link trangchu" href="trangchu.html"><b>Trang Chủ</b></a>
-                    <a class="nav-link cachoancanh" href="cachoancanh.html"><b>Các Hoàn Cảnh</b></a>
+                    <a class="nav-link cachoancanh" href="cachoancanh.html"><b>Hoàn cảnh</b></a>
                     <a class="nav-link lienhe" href="lienhe.html"><b>Liên hệ</b></a>
+                </nav>
+    
+                <div class="header-actions">
+                    <a href="https://www.facebook.com/quoc.le.trung.2025" class="social-link facebook-button" target="_blank" rel="noopener noreferrer" aria-label="Trang Facebook của chúng tôi">
+                        </a>
+                    <a href="/HTML/login.html" class="social-link login-button" aria-label="Đăng nhập">
+                        Đăng nhập
+                    </a>
                 </div>
             </div>
         </header>
