@@ -92,6 +92,57 @@
 
     </main>
 
+    
+    
+    <section class="story-of-the-month-section">
+        <div class="container">
+            <h2 class="section-title">HÀNH TRÌNH CỦA THÁNG</h2>
+            <div class="story-grid">
+                <div class="story-item">
+                    <div class="story-image-wrapper">
+                        <img src="/IMANAGE/le_nguyen_bao_ngoc.jpg" alt="Lê Nguyễn Bảo Ngọc">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-type">Lá chưa lành</span>
+                        <h3 class="story-name">LÊ NGUYỄN BẢO NGỌC</h3>
+                        <div class="story-meta">
+                            <span class="story-code">ĐL0194</span>
+                            </div>
+                        <a href="#" class="cta-button story-cta">Chi tiết</a>
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <div class="story-image-wrapper">
+                        <img src="/IMANAGE/nguyen_ngoc_quy.jpg" alt="Nguyễn Ngọc Quý">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-type">Lá chưa lành</span>
+                        <h3 class="story-name">NGUYỄN NGỌC QUÝ</h3>
+                        <div class="story-meta">
+                            <span class="story-code">ĐL0200</span>
+                        </div>
+                        <a href="#" class="cta-button story-cta">Chi tiết</a>
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <div class="story-image-wrapper">
+                        <img src="/IMANAGE/duong_ngoc_diem_quyen.jpg" alt="Dương Ngọc Diễm Quyên">
+                    </div>
+                    <div class="story-content">
+                        <span class="story-type">Lá chưa lành</span>
+                        <h3 class="story-name">DƯƠNG NGỌC DIỄM QUYÊN</h3>
+                        <div class="story-meta">
+                            <span class="story-code">ĐL0195</span>
+                        </div>
+                        <a href="#" class="cta-button story-cta">Chi tiết</a>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+    
     <footer class="site-footer">
         <div class="container footer-container">
             <div class="footer-info">
@@ -104,7 +155,7 @@
                 <h4>Liên kết nhanh</h4>
                 <ul>
                     <li><a href="trangchu.html">Trang Chủ</a></li>
-                    <li><a href="cachoancanh.html">Hoàn cảnh</a></li>
+                    <li><a href="cachoancanh.html">Hành trình</a></li>
                     <li><a href="lienhe.html">Liên hệ</a></li>
                     <li><a href="#">Về chúng tôi</a></li>
                     <li><a href="#">Chính sách bảo mật</a></li>
@@ -121,7 +172,39 @@
         </div>
     </footer>
 
+
+    <button id="scrollToTopBtn" title="Lên đầu trang">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M11.9999 10.8284L7.05018 15.7782L5.63597 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path>
+        </svg>
+    </button>
     <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            const scrollThresholdShowButton = 750; // Hiện nút sau khi cuộn 750px
+
+            if (scrollToTopBtn) {
+                // Hiển thị/ẩn nút dựa trên vị trí cuộn
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > scrollThresholdShowButton) {
+                        scrollToTopBtn.classList.add('show');
+                    } else {
+                        scrollToTopBtn.classList.remove('show');
+                    }
+                });
+
+                // Cuộn lên đầu khi bấm nút
+                scrollToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth' // Cuộn mượt
+                    });
+                });
+            }
+        });
+
+
         // Script for Active Navigation Link
         document.addEventListener('DOMContentLoaded', function() {
             const currentPage = window.location.pathname.split('/').pop();

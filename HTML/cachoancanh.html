@@ -22,7 +22,7 @@
     
                 <nav class="main-nav">
                     <a class="nav-link trangchu" href="trangchu.html"><b>Trang Chủ</b></a>
-                    <a class="nav-link cachoancanh" href="cachoancanh.html"><b>Hoàn cảnh</b></a>
+                    <a class="nav-link cachoancanh" href="cachoancanh.html"><b>Hành Trình</b></a>
                     <a class="nav-link lienhe" href="lienhe.html"><b>Liên hệ</b></a>
                 </nav>
     
@@ -46,7 +46,7 @@
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 // Check if the link's href matches the current page
-                if (link.getAttribute('href') === currentPage || (currentPage === '' && link.classList.contains('cachoancanh'))) {
+                if (link.getAttribute('href') === currentPage || (currentPage === '' && link.classList.contains('Hành Trình'))) {
                     link.classList.add('active');
                 }
             });

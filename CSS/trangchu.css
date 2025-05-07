@@ -186,7 +186,7 @@
 
   .wheel-container {
       width: 100%; /* Make slider full width */
-       height: 550px; /* Let height be determined by image aspect ratio */
+       height: 580px; /* Let height be determined by image aspect ratio */
       aspect-ratio: 16 / 7; /* Example aspect ratio, adjust as needed */
       position: relative;
       overflow: hidden;
@@ -338,9 +338,6 @@
       color: white;
       padding: 12px 25px;
       border-radius: 5px;
-      /* font-weight: bold; */ /* Đã xoá */
-      /* text-transform: uppercase; */ /* Đã xoá */
-      /* letter-spacing: 1px; */ /* Đã xoá */
       transition: background-color 0.3s ease, transform 0.2s ease;
       margin-right: 10px; /* Space between buttons */
       margin-bottom: 10px; /* Allow wrapping */
@@ -559,3 +556,146 @@
         height: 35px;
       }
   }
+
+  /* === Story of the Month Section === */
+.story-of-the-month-section {
+    padding: 60px 0;
+    background-color: #fff; /* Hoặc màu nền bạn muốn */
+    text-align: center;
+}
+
+.story-of-the-month-section .section-title {
+    color: var(--primary-color); /* Sử dụng màu chính của bạn */
+    margin-bottom: 40px;
+    font-size: 28px; /* Điều chỉnh kích thước chữ */
+    text-transform: uppercase;
+    font-weight: 700; /* Hoặc theo thiết kế */
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    justify-items: center; /* Căn giữa các item trong grid nếu chúng không chiếm hết không gian */
+}
+
+.story-item {
+    background-color: #fff; /* Nền của mỗi item */
+    border-radius: 8px;
+    overflow: hidden; /* Để bo góc ảnh */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 320px; /* Giới hạn chiều rộng tối đa của mỗi item */
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.story-image-wrapper {
+    width: 150px; /* Kích thước ảnh tròn */
+    height: 150px;
+    border-radius: 50%; /* Làm cho ảnh tròn */
+    overflow: hidden; /* Cắt ảnh cho vừa hình tròn */
+    margin: 20px auto 15px; /* Căn giữa và tạo khoảng cách */
+    border: 3px solid var(--primary-color); /* Viền cho ảnh tròn */
+}
+
+.story-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh lấp đầy và không bị méo */
+}
+
+.story-content {
+    padding: 0 20px 25px;
+}
+
+.story-type {
+    display: inline-block;
+    background-color: rgba(200, 200, 200, 0.2); /* Màu nền cho loại lá, bạn có thể thay đổi */
+    color: var(--text-color);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.story-name {
+    font-size: 18px; /* Kích thước tên */
+    color: var(--primary-color-darker); /* Màu tên */
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.story-meta {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.story-code {
+    font-weight: bold;
+    /* Thêm style cho icon QR nếu có */
+}
+
+.story-cta.cta-button { /* Style riêng cho nút chi tiết của story nếu cần */
+    background-color: var(--primary-color); /* Hoặc màu nút bạn muốn, ví dụ màu xanh như trong hình */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.story-cta.cta-button:hover {
+    background-color: var(--primary-color-darker);
+}
+
+
+/* === Scroll to Top Button === */
+#scrollToTopBtn {
+    position: fixed; /* Cố định trên màn hình */
+    bottom: 30px;
+    right: 30px;
+    background-color: #DC3545; /* Màu đỏ như yêu cầu */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Làm cho nút tròn */
+    width: 50px; /* Kích thước nút */
+    height: 50px;
+    font-size: 24px; /* Kích thước icon */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999; /* Đảm bảo nút nổi lên trên */
+    opacity: 0; /* Mặc định ẩn */
+    visibility: hidden; /* Mặc định ẩn hoàn toàn */
+    transform: translateY(20px); /* Hiệu ứng trượt lên khi xuất hiện */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+#scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scrollToTopBtn:hover {
+    background-color: #C82333; /* Màu đỏ đậm hơn khi hover */
+}
+
+#scrollToTopBtn svg { /* Style cho icon SVG nếu bạn dùng SVG */
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
