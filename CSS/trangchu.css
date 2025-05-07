@@ -467,7 +467,7 @@
       }
       .main-nav .nav-link {
           padding: 10px 12px;
-          /* font-size: 14px; */ /* Đã xoá */
+          
       }
       .feature-content {
           gap: 20px; /* Reduce gap */
@@ -498,9 +498,7 @@
       .header-actions { /* Adjust actions block on mobile */
           margin-top: 15px;
       }
-       /* .social-link { */ /* Removed redundant margin-top here, handled by .header-actions */
-          /* margin-top: 15px; */
-      /* } */
+       
       .feature-content {
           flex-direction: column; /* Stack text and image vertically */
           text-align: center;

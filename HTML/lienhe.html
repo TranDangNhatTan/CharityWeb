@@ -55,5 +55,24 @@
                 document.querySelector('.nav-link.lienhe').classList.add('active');
             }
         });
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.site-header');
+            if (!header) return;
+
+            const scrollThreshold = 50; // Pixels to scroll before shrinking header
+
+            function updateHeaderOnScroll() {
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.remove('header-normal');
+                    header.classList.add('header-small');
+                } else {
+                    header.classList.remove('header-small');
+                    header.classList.add('header-normal');
+                }
+            }
+
+            window.addEventListener('scroll', updateHeaderOnScroll);
+            updateHeaderOnScroll(); // Check initial state
+        });
     </script>
 </html>
