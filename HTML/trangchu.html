@@ -126,19 +126,83 @@
             </div>
         </section>
 
-        <section class="placeholder-section" aria-labelledby="placeholder-title">
-             <div class="container">
-                <h2 id="placeholder-title">Các Hoạt Động Khác</h2>
-                <p>Nội dung về các hoạt động, dự án khác sẽ được cập nhật tại đây...</p>
-                <div class="activity-grid">
-                    <div class="activity-item">Hoạt động 1</div>
-                    <div class="activity-item">Hoạt động 2</div>
-                    <div class="activity-item">Hoạt động 3</div>
-                </div>
-             </div>
-        </section>
-
-    </main>
+        <section class="activities-section" aria-labelledby="activities-title">
+            <div class="container">
+                <a href="cachoancanh.html">
+                    <h2 id="activities-title">Các Hoạt Động Khác</h2>
+                </a>
+               <p class="section-description">Nội dung về các hoạt động, dự án khác sẽ được cập nhật tại đây...</p>
+               <div class="activities-container">
+                       <div class="activity-card">
+                           <img src="/IMAGES/valo.png" alt="Tên hoạt động mẫu 1">
+                           <div class="activity-info">
+                               <h3>Tên hoạt động mẫu 1</h3>
+                               <p class="activity-time"><strong>Thời gian:</strong> Sắp diễn ra</p>
+                               <div class="activity-members">
+                                   <strong>Thành viên:</strong>
+                                   <div class="progress-bar-container">
+                                       <div class="progress-bar" style="width: 50%;">50%</div>
+                                   </div>
+                                   <p class="progress-bar-text">10 / 20 thành viên</p>
+                               </div>
+                               <div class="activity-donations">
+                                   <strong>Số tiền ủng hộ:</strong>
+                                   <div class="progress-bar-container">
+                                       <div class="progress-bar" style="width: 75%;">75%</div>
+                                   </div>
+                                   <p class="progress-bar-text">15.000.000 VNĐ / 20.000.000 VNĐ</p>
+                               </div>
+                               <a href="#" class="details-button">Chi tiết</a>
+                           </div>
+                       </div>
+                       <div class="activity-card">
+                           <img src="/IMAGES/tan.png" alt="Tên hoạt động mẫu 2">
+                           <div class="activity-info">
+                               <h3>Tên hoạt động mẫu 2</h3>
+                               <p class="activity-time"><strong>Thời gian:</strong> Đang diễn ra</p>
+                               <div class="activity-members">
+                                   <strong>Thành viên:</strong>
+                                   <div class="progress-bar-container">
+                                       <div class="progress-bar" style="width: 80%;">80%</div>
+                                   </div>
+                                   <p class="progress-bar-text">24 / 30 thành viên</p>
+                               </div>
+                               <div class="activity-donations">
+                                   <strong>Số tiền ủng hộ:</strong>
+                                   <div class="progress-bar-container">
+                                       <div class="progress-bar" style="width: 60%;">60%</div>
+                                   </div>
+                                   <p class="progress-bar-text">30.000.000 VNĐ / 50.000.000 VNĐ</p>
+                               </div>
+                               <a href="#" class="details-button">Chi tiết</a>
+                           </div>
+                       </div>
+                       <div class="activity-card">
+                           <img src="/IMAGES/vien.png" alt="Tên hoạt động mẫu 3">
+                           <div class="activity-info">
+                               <h3>Tên hoạt động mẫu 3</h3>
+                               <p class="activity-time"><strong>Thời gian:</strong> Đã kết thúc</p>
+                               <div class="activity-members">
+                                   <strong>Thành viên:</strong>
+                                   <div class="progress-bar-container">
+                                       <div class="progress-bar" style="width: 100%;">100%</div>
+                                   </div>
+                                   <p class="progress-bar-text">15 / 15 thành viên</p>
+                               </div>
+                               <div class="activity-donations">
+                                   <strong>Số tiền ủng hộ:</strong>
+                                   <div class="progress-bar-container">
+                                       <div class="progress-bar" style="width: 100%;">100%</div>
+                                   </div>
+                                   <p class="progress-bar-text">25.000.000 VNĐ / 25.000.000 VNĐ</p>
+                               </div>
+                               <a href="#" class="details-button">Chi tiết</a>
+                           </div>
+                       </div>
+               </div>
+            </div>
+       </section>
+        </main>
 
     <div class="line"></div>
     
@@ -241,27 +305,23 @@
 
                 if (slides.length > 0 && prevButton && nextButton) {
                     function updateSlider() {
-                        // Di chuyển track
                         track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
-
-                        // Cập nhật trạng thái active cho slide (tùy chọn)
                         slides.forEach((slide, index) => {
                             slide.classList.toggle('active', index === currentSlideIndex);
                         });
-
                         if (slides.length <= 1) {
                             prevButton.disabled = true;
                             nextButton.disabled = true;
                         } else {
-                            prevButton.disabled = false; // Luôn bật nếu có nhiều hơn 1 slide và lặp
-                            nextButton.disabled = false; // Luôn bật
+                            prevButton.disabled = false; 
+                            nextButton.disabled = false; 
                         }
                     }
 
                     prevButton.addEventListener('click', function() {
                         currentSlideIndex--;
                         if (currentSlideIndex < 0) {
-                            currentSlideIndex = slides.length - 1; // Quay lại slide cuối
+                            currentSlideIndex = slides.length - 1; 
                         }
                         updateSlider();
                     });
@@ -269,25 +329,21 @@
                     nextButton.addEventListener('click', function() {
                         currentSlideIndex++;
                         if (currentSlideIndex >= slides.length) {
-                            currentSlideIndex = 0; // Quay lại slide đầu
+                            currentSlideIndex = 0; 
                         }
                         updateSlider();
                     });
-
-                    // Khởi tạo slider
                     updateSlider();
                 }
             }
         });
     
 
-
         document.addEventListener('DOMContentLoaded', function() {
             const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-            const scrollThresholdShowButton = 750; // Hiện nút sau khi cuộn 750px
+            const scrollThresholdShowButton = 750; 
 
             if (scrollToTopBtn) {
-                // Hiển thị/ẩn nút dựa trên vị trí cuộn
                 window.addEventListener('scroll', function() {
                     if (window.scrollY > scrollThresholdShowButton) {
                         scrollToTopBtn.classList.add('show');
@@ -295,36 +351,30 @@
                         scrollToTopBtn.classList.remove('show');
                     }
                 });
-
-                // Cuộn lên đầu khi bấm nút
                 scrollToTopBtn.addEventListener('click', function() {
                     window.scrollTo({
                         top: 0,
-                        behavior: 'smooth' // Cuộn mượt
+                        behavior: 'smooth' 
                     });
                 });
             }
         });
 
-
-        // Script for Active Navigation Link
         document.addEventListener('DOMContentLoaded', function() {
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.main-nav .nav-link');
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                // Check if the link's href matches the current page
                 if (link.getAttribute('href') === currentPage || (currentPage === '' && link.classList.contains('trangchu'))) {
                     link.classList.add('active');
                 }
             });
         });
 
-        // Script for Image Slider (Wheel)
         document.addEventListener('DOMContentLoaded', function() {
             const wheelContainer = document.querySelector('.wheel-container');
-            if (!wheelContainer) return; // Exit if slider doesn't exist
+            if (!wheelContainer) return; 
 
             const wheelSlide = wheelContainer.querySelector('.wheel-slide');
             const wheelItems = wheelContainer.querySelectorAll('.wheel-item');
@@ -339,13 +389,12 @@
             }
 
             let counter = 0;
-            let slideWidth = wheelItems[0].offsetWidth; // Get initial width
+            let slideWidth = wheelItems[0].offsetWidth; 
 
             function updateSlideWidth() {
-                 slideWidth = wheelItems[0].offsetWidth; // Update width on resize
-                 goToSlide(counter, false); // Adjust position without transition initially
+                 slideWidth = wheelItems[0].offsetWidth; 
+                 goToSlide(counter, false); 
             }
-
 
             function goToSlide(index, transition = true) {
                 if (index < 0) {
@@ -355,7 +404,6 @@
                 } else {
                     counter = index;
                 }
-
                 wheelSlide.style.transition = transition ? 'transform 0.5s ease-in-out' : 'none';
                 wheelSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
                 updateDots();
@@ -383,27 +431,17 @@
                     goToSlide(index);
                 });
             });
-
-             // Initial setup
-            updateSlideWidth(); // Set initial width and position
-            window.addEventListener('resize', updateSlideWidth); // Update on resize
-
-
-            // Auto slide
+            updateSlideWidth(); 
             let autoSlideInterval = setInterval(nextSlide, 2000);
-
-            // Optional: Pause auto-slide on hover
             wheelContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
             wheelContainer.addEventListener('mouseleave', () => autoSlideInterval = setInterval(nextSlide, 4400));
         });
 
-        // Script for Sticky Header Shrink
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('.site-header');
             if (!header) return;
 
-            const scrollThreshold = 170; // Pixels to scroll before shrinking header
-
+            const scrollThreshold = 170; 
             function updateHeaderOnScroll() {
                 if (window.scrollY > scrollThreshold) {
                     header.classList.remove('header-normal');
@@ -413,9 +451,21 @@
                     header.classList.add('header-normal');
                 }
             }
-
             window.addEventListener('scroll', updateHeaderOnScroll);
-            updateHeaderOnScroll(); // Check initial state
+            updateHeaderOnScroll(); 
+        });
+
+        // THÊM SCRIPT CHO HOẠT ĐỘNG (NẾU CÓ)
+        document.addEventListener('DOMContentLoaded', function() {
+            const activityCards = document.querySelectorAll('.activity-card');
+            activityCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)';
+                });
+            });
         });
     </script>
 
