@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Liên Hệ</title>
+        <title>Quyên góp</title>
         <meta charset="UTF-8">
         
-        <link rel="stylesheet" href="/CSS/lienhe.css">
+        <link rel="stylesheet" href="/CSS/quyengop.css">
         <style>
             .lienhe1{
                 width: auto;
                 height: 700px;
-                background-color: aqua;
+                background-color: rgb(118, 136, 136);
             }
         </style>
     </head>
@@ -43,19 +43,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const currentPage = window.location.pathname.split('/').pop();
-            const navLinks = document.querySelectorAll('.nav-link');
+            const navLinks = document.querySelectorAll('.main-nav .nav-link');
 
             navLinks.forEach(link => {
-                link.classList.remove('active'); 
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPage || (currentPage === '' && link.classList.contains('trangchu'))) {
+                    link.classList.add('active');
+                }
             });
-
-            if (currentPage === 'trangchu.html' || currentPage === '') {
-                document.querySelector('.nav-link.trangchu').classList.add('active');
-            } else if (currentPage === 'cachoancanh.html') {
-                document.querySelector('.nav-link.cachoancanh').classList.add('active');
-            } else if (currentPage === 'lienhe.html') {
-                document.querySelector('.nav-link.lienhe').classList.add('active');
-            }
         });
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('.site-header');
